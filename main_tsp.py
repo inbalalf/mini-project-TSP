@@ -42,7 +42,7 @@ def calc():
         print(f"Average for the last {len(cur_tour_values)} values: {average}")
     f.close()  
 
-def genetic_algorithm_path():
+def genetic_algorithm_path(tsp):
     best_comb = (0,0,0)
     best_path = inf
     f = open ("results.txt", "w")
@@ -70,9 +70,9 @@ def print_results_from_tsp_path(tsp_path):
     print(f"NAIVE TOUR LENGTH:        {calc_naive_tour(tsp)}")
     print(f"NEAREST NEIGHBOR LENGTH:  {calc_nearest_neighbor_tour(tsp)}")
     print(f"DP LENGTH :              {calc_held_karp_tour(tsp)}")
-    print(f"CHRISTOFIDES LENGTH: {calc_christofides_algorithm_tour(tsp, 100, 10, Graph)}")  
+    print(f"CHRISTOFIDES LENGTH: {calc_christofides_algorithm_tour(tsp)}")  
     # write the results and the avrage results into output files: 'results.txt' and 'average_results.txt'
-    genetic_algorithm_path()
+    genetic_algorithm_path(tsp)
 
 def main():
     print_results_from_tsp_path("input.tsp")
